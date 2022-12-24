@@ -1,8 +1,8 @@
-import { workspace, useAppStore } from './store'
+import { workspace, useAppStore } from '../store'
 
 /**
  *
- * @param props {{ page: import('@blocksuite/pages/store').Page | null}}
+ * @param props {{ page: import('@blocksuite/store').Page | null}}
  * @constructor
  */
 function StorePage ({ page }) {
