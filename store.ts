@@ -18,7 +18,7 @@ workspace.signals.pageAdded.on((id) => {
 
 workspace.signals.pageRemoved.on((id) => {
   useAppStore.setState(({ pages }: any) => {
-    const target = pages.findIndex((page: Page) => page.id === id)
+    const target = pages.findIndex((page: Page) => page.id.endsWith(id))
     pages.splice(target, 1)
     pages = [...pages]
     return {
