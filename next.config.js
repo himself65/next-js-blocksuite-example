@@ -6,7 +6,7 @@ const nextConfig = {
   swcMinify: true,
 }
 
-const baseDir = process.env.LOCAL_BLOCK_SUITE
+const baseDir = process.env.LOCAL_BLOCK_SUITE ?? '/'
 const withDebugLocal = require('next-debug-local')(
   {
     '@blocksuite/editor': path.resolve(baseDir, 'packages', 'editor'),
