@@ -1,8 +1,10 @@
-import { Workspace } from '@blocksuite/store'
-import { useSyncExternalStore } from 'react'
+import { Workspace, IndexedDBDocProvider, uuidv4 } from '@blocksuite/store'
+import { useState, useSyncExternalStore } from 'react'
 
+const isSSR = typeof window === 'undefined'
 const workspace = new Workspace({
   room: 'my-room',
+  providers: !isSSR ? [IndexedDBDocProvider] : [],
   isSSR: typeof window === 'undefined'
 })
 
@@ -10,10 +12,8 @@ if (typeof window !== 'undefined') {
   window.workspace = workspace
 }
 
-let id = 0
-
 function createPage () {
-  workspace.createPage(`${id++}`)
+  workspace.createPage(uuidv4())
 }
 
 /**
@@ -48,22 +48,60 @@ function usePages () {
   )
 }
 
-export default function Home () {
-  const pages = usePages()
+/**
+ *
+ * @param props {{ page: import('@blocksuite/store').Page | null}}
+ * @constructor
+ */
+function StorePage ({ page }) {
+  if (page === null) {
+    return null
+  }
+
   return (
     <div>
-      hello, world
+      hello, this is {page.id}
+
+      <br/>
+      <button
+        onClick={() => {
+          workspace.removePage(page.id)
+        }}
+      >delete me
+      </button>
+    </div>
+  )
+}
+
+export default function Home () {
+  const pages = usePages()
+  const [currentPage, setCurrentPage] = useState(null)
+  return (
+    <div>
       <button
         onClick={() => {
           createPage()
         }}
-      >create new page</button>
+      >
+        create new page
+      </button>
       <br/>
       {
         pages.map(page => {
-          return <div key={page.id}>{page.id}</div>
+          return (
+            <button
+              onClick={() => {
+                setCurrentPage(page)
+              }}
+              key={page.id}
+            >
+              jump tp {page.meta.title || page.id}
+            </button>
+          )
         })
       }
+      <hr/>
+      <StorePage page={currentPage}/>
     </div>
   )
 }
