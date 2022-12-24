@@ -1,56 +1,8 @@
-import { Workspace, IndexedDBDocProvider, uuidv4 } from '@blocksuite/store'
-import { useState, useSyncExternalStore } from 'react'
-
-const isSSR = typeof window === 'undefined'
-const workspace = new Workspace({
-  room: 'my-room',
-  providers: !isSSR ? [IndexedDBDocProvider] : [],
-  isSSR: typeof window === 'undefined'
-})
-
-if (typeof window !== 'undefined') {
-  window.workspace = workspace
-}
-
-function createPage () {
-  workspace.createPage(uuidv4())
-}
+import { workspace, useAppStore } from './store'
 
 /**
  *
- * @type {import('@blocksuite/store').Page[]}
- */
-let pages = []
-
-function usePages () {
-  return useSyncExternalStore(
-    (callback) => {
-      const a = workspace.signals.pageAdded.on((id) => {
-        const page = workspace.getPage(id)
-        pages = [...pages, page]
-        callback()
-      })
-      const b = workspace.signals.pagesUpdated.on(callback)
-      const c = workspace.signals.pageRemoved.on((id) => {
-        const target = pages.findIndex(page => page.id === id)
-        pages.splice(target, 1)
-        pages = [...pages]
-        callback()
-      })
-      return () => {
-        a.dispose()
-        b.dispose()
-        c.dispose()
-      }
-    },
-    () => pages,
-    () => pages
-  )
-}
-
-/**
- *
- * @param props {{ page: import('@blocksuite/store').Page | null}}
+ * @param props {{ page: import('@blocksuite/pages/store').Page | null}}
  * @constructor
  */
 function StorePage ({ page }) {
@@ -74,8 +26,10 @@ function StorePage ({ page }) {
 }
 
 export default function Home () {
-  const pages = usePages()
-  const [currentPage, setCurrentPage] = useState(null)
+  const pages = useAppStore(store => store.pages)
+  const currentPage = useAppStore(store => store.currentPage)
+  const createPage = useAppStore(store => store.createPage)
+  const setCurrentPage = useAppStore(store => store.setCurrentPage)
   return (
     <div>
       <button
