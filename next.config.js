@@ -1,4 +1,4 @@
-const path = require('node:path');
+const path = require('node:path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,7 +14,7 @@ const withDebugLocal = require('next-debug-local')(
     '@blocksuite/store': path.resolve(baseDir, 'packages', 'store'),
   },
   {
-    enable: process.env.LOCAL_BLOCK_SUITE !== '',
+    enable: path.isAbsolute(process.env.LOCAL_BLOCK_SUITE ?? ''),
   }
 )
 
