@@ -1,5 +1,6 @@
 import create from 'zustand'
 import { Workspace, IndexedDBDocProvider, uuidv4, Page } from '@blocksuite/store'
+import { BlockSchema } from '@blocksuite/blocks/models'
 
 const isSSR = typeof window === 'undefined'
 
@@ -8,6 +9,8 @@ export const workspace = new Workspace({
   providers: !isSSR ? [IndexedDBDocProvider] : [],
   isSSR: typeof window === 'undefined'
 })
+
+workspace.register(BlockSchema)
 
 workspace.signals.pageAdded.on((id) => {
   const page = workspace.getPage(id)

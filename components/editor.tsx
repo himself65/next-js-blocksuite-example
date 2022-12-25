@@ -1,9 +1,6 @@
-import { BlockSchema, EditorContainer } from '@blocksuite/editor'
+import { EditorContainer } from '@blocksuite/editor'
 import React, { useEffect, useRef } from 'react'
 import { Page, Text } from '@blocksuite/store'
-import { workspace } from '../store'
-
-workspace.register(BlockSchema)
 
 export default function Editor ({ page }: { page: Page }) {
   const ref = useRef<HTMLDivElement>(null)

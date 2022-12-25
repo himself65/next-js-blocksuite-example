@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocksuite/blocks": "0.3.0-20221225022011-7a93640",
-    "@blocksuite/editor": "0.3.0-20221225022011-7a93640",
-    "@blocksuite/store": "0.3.0-20221225022011-7a93640",
+    "@blocksuite/blocks": "0.3.0-20221225043045-210f1e3",
+    "@blocksuite/editor": "0.3.0-20221225043045-210f1e3",
+    "@blocksuite/store": "0.3.0-20221225043045-210f1e3",
     "lit": "^2.3.1",
     "next": "13.1.1",
     "next-debug-local": "^0.1.5",

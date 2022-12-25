@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@blocksuite/blocks': 0.3.0-20221225022011-7a93640
-  '@blocksuite/editor': 0.3.0-20221225022011-7a93640
-  '@blocksuite/store': 0.3.0-20221225022011-7a93640
+  '@blocksuite/blocks': 0.3.0-20221225043045-210f1e3
+  '@blocksuite/editor': 0.3.0-20221225043045-210f1e3
+  '@blocksuite/store': 0.3.0-20221225043045-210f1e3
   '@types/node': 18.11.17
   '@types/react': 18.0.26
   eslint: 8.30.0
@@ -18,9 +18,9 @@ specifiers:
   zustand: ^4.1.5
 
 dependencies:
-  '@blocksuite/blocks': 0.3.0-20221225022011-7a93640_yjs@13.5.43
-  '@blocksuite/editor': 0.3.0-20221225022011-7a93640_yjs@13.5.43
-  '@blocksuite/store': 0.3.0-20221225022011-7a93640_yjs@13.5.43
+  '@blocksuite/blocks': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
+  '@blocksuite/editor': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
+  '@blocksuite/store': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
   lit: 2.5.0
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   next-debug-local: 0.1.5
@@ -53,10 +53,10 @@ packages:
       regenerator-runtime: 0.13.11
     dev: true
 
-  /@blocksuite/blocks/0.3.0-20221225022011-7a93640_yjs@13.5.43:
-    resolution: {integrity: sha512-nOGqLC+l56GmbMZ00JG9tmVZU2CEujWAIIzADcl41bgJaRWAACNQOyInY4cb7VWR0qjupqtiIf8TpG2ClKQXIQ==}
+  /@blocksuite/blocks/0.3.0-20221225043045-210f1e3_yjs@13.5.43:
+    resolution: {integrity: sha512-Yd4fmWLYnQINcnTinKHtvdESLa2Nwyqa7MHNDkrpSTNTFF+d7thhrqKaKwllLe8JxCGt/djZl+8V5Ja3OJ5CGQ==}
     dependencies:
-      '@blocksuite/store': 0.3.0-20221225022011-7a93640_yjs@13.5.43
+      '@blocksuite/store': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
       '@tldraw/intersect': 1.8.0
       highlight.js: 11.7.0
       hotkeys-js: 3.10.1
@@ -71,11 +71,11 @@ packages:
       - yjs
     dev: false
 
-  /@blocksuite/editor/0.3.0-20221225022011-7a93640_yjs@13.5.43:
-    resolution: {integrity: sha512-mp1RuntF69ZDa9cCJZlDowXrdPLutxgMmLdV5isN3o8NgidsTMqZ6pfyZOM5WzJFR6b4dt45teocVunGc+4zzA==}
+  /@blocksuite/editor/0.3.0-20221225043045-210f1e3_yjs@13.5.43:
+    resolution: {integrity: sha512-Qz9vZMEPP6A11m0olMeVEir9XsyM5aPIaGOGSjO+efqbPZUZaPJ4nTp8oWO4JzKSfMZeS5M/yVpTmihXwNleog==}
     dependencies:
-      '@blocksuite/blocks': 0.3.0-20221225022011-7a93640_yjs@13.5.43
-      '@blocksuite/store': 0.3.0-20221225022011-7a93640_yjs@13.5.43
+      '@blocksuite/blocks': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
+      '@blocksuite/store': 0.3.0-20221225043045-210f1e3_yjs@13.5.43
       lit: 2.5.0
       marked: 4.2.5
       turndown: 7.1.1
@@ -86,8 +86,8 @@ packages:
       - yjs
     dev: false
 
-  /@blocksuite/store/0.3.0-20221225022011-7a93640_yjs@13.5.43:
-    resolution: {integrity: sha512-FuvXPOoQeUExC0ZriLzTijAnCrH0NQc9bb8FBvAWdL3EyERTLbme6piI0FXXodA+IUds/xToFspZ55QDXJxLmQ==}
+  /@blocksuite/store/0.3.0-20221225043045-210f1e3_yjs@13.5.43:
+    resolution: {integrity: sha512-hIJcWWmCnZoQdWhK7EVS4+HxLh6csl0lGnjPHz8nN9NO9B1FM9NXMmrD3SkA+l2g0J0Lc8/qCgNSOQaaf6D8Cw==}
     peerDependencies:
       yjs: ^13
     dependencies:
