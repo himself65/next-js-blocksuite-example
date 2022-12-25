@@ -22,6 +22,7 @@ workspace.signals.pageRemoved.on((id) => {
     pages.splice(target, 1)
     pages = [...pages]
     return {
+      currentPage: null,
       pages
     }
   })
