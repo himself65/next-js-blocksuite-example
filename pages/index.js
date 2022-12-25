@@ -1,4 +1,9 @@
 import { workspace, useAppStore } from '../store'
+import dynamic from 'next/dynamic'
+
+const Editor = dynamic(() => import('../components/editor'), {
+  ssr: false
+})
 
 /**
  *
@@ -13,7 +18,6 @@ function StorePage ({ page }) {
   return (
     <div>
       hello, this is {page.id}
-
       <br/>
       <button
         onClick={() => {
@@ -21,6 +25,7 @@ function StorePage ({ page }) {
         }}
       >delete me
       </button>
+      <Editor page={page}/>
     </div>
   )
 }
